@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.scss';
 import Nav from './view/Nav';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Todo from './view/Todo';
+import Covid from './view/Covid';
 const App = () => {
 
 
@@ -22,10 +23,18 @@ const App = () => {
   let [name, setName] = useState('Hai');
   let [todo, setTodo] = useState([
     { id: 1, title: 'Playing game', type: 'Hai' },
-    { id: 2, title: 'Doing homework', type: 'Hai' },
-    { id: 3, title: 'Doing homework', type: 'Ehbu' },
-    { id: 4, title: 'Doing homework', type: 'Ehbu' }
+    { id: 2, title: 'Doing homework1', type: 'Hai' },
+    { id: 3, title: 'Doing homework2', type: 'Ehbu' },
+    { id: 4, title: 'Doing homework3', type: 'Ehbu' }
   ])
+  const handleClickDelete = (id) => {
+    let todoNew = todo.filter(item => item.id !== id)
+    setTodo(todoNew)
+  }
+  useEffect(() => {
+    console.log('useEffect')
+  }, [name]);
+
   return (
 
     <div className="App">
@@ -35,11 +44,10 @@ const App = () => {
         <p>
           Hello {name}!
         </p>
-        <Todo todo={todo} title={'All todo'} />
-        <Todo todo={todo.filter(item => item.type === 'Hai')} title={"Hai's todo"} />
+        {/* <Todo todo={todo} title={'All todo'} handleClickDelete={handleClickDelete} />
         <input type='text' value={name} onChange={(event) => handleOnChange(event)} />
-        <button type='button' onClick={() => handleClick()}>Click me</button>
-
+        <button type='button' onClick={() => handleClick()}>Click me</button> */}
+        <Covid />
       </header>
     </div>
   );
