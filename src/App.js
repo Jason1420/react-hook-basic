@@ -6,8 +6,8 @@ import Todo from './view/Todo';
 import Data from './view/Data';
 import { Countdown, NewCountdown } from './view/Countdown';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom/cjs/react-router-dom.min';
-
-
+import Blog from './view/Blog';
+import DetailBlog from './view/DetailBlog';
 
 
 const App = () => {
@@ -75,8 +75,14 @@ const App = () => {
               <input type='text' value={name} onChange={(event) => handleOnChange(event)} />
               <button type='button' onClick={() => handleClick()}>Click me</button>
             </Route>
+            <Route path="/blog" exact>
+              <Blog />
+            </Route>
             <Route path="/data">
               <Data />
+            </Route>
+            <Route path="/blog/:id">
+              <DetailBlog />
             </Route>
 
           </Switch>

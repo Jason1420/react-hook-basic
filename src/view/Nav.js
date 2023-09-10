@@ -6,6 +6,7 @@ const Nav = () => {
             <NavLink activeClassName="active" to="/" exact>Home</NavLink>
             <NavLink activeClassName="active" to="/todo">Todo</NavLink>
             <NavLink activeClassName="active" to="/data">Data</NavLink>
+            <NavLink activeClassName="active" to="/blog">Blog</NavLink>
             <NavLink activeClassName="active" to="/timer">Timer</NavLink>
             <NavLink activeClassName="active" to="/about">About</NavLink>
         </div>
