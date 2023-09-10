@@ -12,6 +12,12 @@ class Countdown extends React.Component {
             })
         }, 1000)
     }
+    componentWillUnmount() {
+        if (this.timer) {
+            clearInterval(this.timer);
+
+        }
+    }
     componentDidUpdate(preProps, preState) {
         if (preState.count !== this.state.count && this.state.count === 0) {
             clearInterval(this.timer);

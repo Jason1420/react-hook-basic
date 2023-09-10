@@ -1,7 +1,7 @@
 import useFetch from "../customize/Fetch"
 
 
-const Covid = () => {
+const Data = () => {
 
     const { data: dataCovid, isLoading, isErr } = useFetch('https://jsonplaceholder.typicode.com/todos')
 
@@ -38,4 +38,4 @@ const Covid = () => {
         </table>
     )
 }
-export default Covid;
+export default Data;

@@ -3,9 +3,9 @@ import './App.scss';
 import Nav from './view/Nav';
 import { useState, useEffect } from 'react';
 import Todo from './view/Todo';
-import Covid from './view/Covid';
+import Data from './view/Data';
 import { Countdown, NewCountdown } from './view/Countdown';
-
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 
@@ -44,23 +44,45 @@ const App = () => {
 
   }
   return (
+    <Router>
+      <div className="App">
+        <Nav />
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          {/* <Countdown onTimeUp={onTimeUp} />
+          <span>-------------</span>
+          <NewCountdown onTimeUp={onTimeUp} />
+          <p>
+            Hello {name}!
+          </p>
+          <Todo todo={todo} title={'All todo'} handleClickDelete={handleClickDelete} />
+          <input type='text' value={name} onChange={(event) => handleOnChange(event)} />
+          <button type='button' onClick={() => handleClick()}>Click me</button>
+          <Data /> */}
 
-    <div className="App">
-      <Nav />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Countdown onTimeUp={onTimeUp} />
-        <span>-------------</span>
-        <NewCountdown onTimeUp={onTimeUp} />
-        <p>
-          Hello {name}!
-        </p>
-        {/* <Todo todo={todo} title={'All todo'} handleClickDelete={handleClickDelete} />
-        <input type='text' value={name} onChange={(event) => handleOnChange(event)} />
-        <button type='button' onClick={() => handleClick()}>Click me</button> */}
-        <Covid />
-      </header>
-    </div>
+
+          <Switch>
+            <Route exact path="/">
+              <div>Hello world from Homepage</div>
+            </Route>
+            <Route exact path="/timer">
+              <Countdown onTimeUp={onTimeUp} />
+              <span>-------------</span>
+              <NewCountdown onTimeUp={onTimeUp} />
+            </Route>
+            <Route path="/todo">
+              <Todo todo={todo} title={'All todo'} handleClickDelete={handleClickDelete} />
+              <input type='text' value={name} onChange={(event) => handleOnChange(event)} />
+              <button type='button' onClick={() => handleClick()}>Click me</button>
+            </Route>
+            <Route path="/data">
+              <Data />
+            </Route>
+
+          </Switch>
+        </header>
+      </div>
+    </Router>
   );
 }
 
