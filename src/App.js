@@ -4,6 +4,12 @@ import Nav from './view/Nav';
 import { useState, useEffect } from 'react';
 import Todo from './view/Todo';
 import Covid from './view/Covid';
+import { Countdown, NewCountdown } from './view/Countdown';
+
+
+
+
+
 const App = () => {
 
 
@@ -34,13 +40,18 @@ const App = () => {
   useEffect(() => {
     console.log('useEffect')
   }, [name]);
+  const onTimeUp = () => {
 
+  }
   return (
 
     <div className="App">
       <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <Countdown onTimeUp={onTimeUp} />
+        <span>-------------</span>
+        <NewCountdown onTimeUp={onTimeUp} />
         <p>
           Hello {name}!
         </p>

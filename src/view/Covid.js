@@ -1,14 +1,9 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import useFetch from "../customize/Fetch"
+
 
 const Covid = () => {
-    const [dataCovid, setDataCovid] = useState([]);
-    useEffect(async () => {
-        let res = await axios.get(`https://jsonplaceholder.typicode.com/todos`)
-        let data = res && res.data ? res.data : []
-        setDataCovid(data);
-    }, [])
 
+    const { data: dataCovid, isLoading, isErr } = useFetch('https://jsonplaceholder.typicode.com/todos')
 
     return (
         <table id="customers">
@@ -20,7 +15,7 @@ const Covid = () => {
                 </tr>
             </thead>
             <tbody>
-                {dataCovid && dataCovid.length > 0 &&
+                {isErr === false && isLoading === false && dataCovid && dataCovid.length > 0 &&
                     dataCovid.map((item, index) => {
                         return (
                             <tr key={item.id}>
@@ -32,6 +27,12 @@ const Covid = () => {
                     })
 
                 }
+                {isLoading === true &&
+                    <tr>
+                        <td colSpan={3} style={{ textAlign: "center" }}>Loading...</td></tr>}
+                {isErr === true &&
+                    <tr>
+                        <td colSpan={3} style={{ textAlign: "center" }}>Something wrong...</td></tr>}
             </tbody>
 
         </table>
