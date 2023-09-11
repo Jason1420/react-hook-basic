@@ -1,0 +1,23 @@
+.blog-detail {
+    border: 1px solid grey;
+    max-width: 400px;
+    font-size: 18px;
+    margin: 10px 0;
+    border-radius: 15px;
+
+    .title {
+        margin: 10px 10px;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .content {
+        text-align: justify;
+        margin: 10px 10px;
+    }
+}
+
+span {
+    font-size: 14px;
+}

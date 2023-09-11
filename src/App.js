@@ -5,10 +5,11 @@ import { useState, useEffect } from 'react';
 import Todo from './view/Todo';
 import Data from './view/Data';
 import { Countdown, NewCountdown } from './view/Countdown';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Blog from './view/Blog';
 import DetailBlog from './view/DetailBlog';
-
+import AddNewBlog from './view/AddNewBlog';
+import NotFound from './view/NotFound';
 
 const App = () => {
 
@@ -78,13 +79,18 @@ const App = () => {
             <Route path="/blog" exact>
               <Blog />
             </Route>
-            <Route path="/data">
+            <Route path="/data" exact>
               <Data />
             </Route>
             <Route path="/blog/:id">
               <DetailBlog />
             </Route>
-
+            <Route path="/add-new-blog" exact>
+              <AddNewBlog />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
           </Switch>
         </header>
       </div>
