@@ -10,7 +10,7 @@ import Blog from './view/Blog';
 import DetailBlog from './view/DetailBlog';
 import AddNewBlog from './view/AddNewBlog';
 import NotFound from './view/NotFound';
-
+import YoutubeSearch from './view/YoutubeSearch';
 const App = () => {
 
 
@@ -87,6 +87,9 @@ const App = () => {
             </Route>
             <Route path="/add-new-blog" exact>
               <AddNewBlog />
+            </Route>
+            <Route path="/secret" exact>
+              <YoutubeSearch />
             </Route>
             <Route path="*">
               <NotFound />
